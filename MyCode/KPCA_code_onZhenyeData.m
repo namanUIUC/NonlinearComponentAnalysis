@@ -1,10 +1,10 @@
 clear all;
 clc;
 %loading data
-load('usps_all')
+load('Zhenyedata')
 
 %TEST DATA : M(observation/sample points) x N(features/dimensions)
-X_test = double(data(:, 1:500, 1)');
+X_test = double(data);
 
 %Centreing Data
 mu = mean(X_test);
@@ -28,7 +28,7 @@ switch kernel
         % K(x,y) = -exp((x-y)^2/(sigma)^2)
         % K is a symmetric Kernel
             K = zeros(M,M);
-            for row = 1:(M)
+            for row = 1:M
                 for col = 1:row
                     temp = sum(((X_centered(row,:) - X_centered(col,:)).^2));
                     K(row,col) = exp(-temp); % sigma = 1
@@ -49,8 +49,8 @@ K_center = K - one_mat*K - K*one_mat + one_mat*K*one_mat;
 
 %Eigen values and vectors for K_centered (i.e. lamda.M and alpha)
 [V_K,D_K] = eig(K_center);
-eigval_K = diag(D_K);
-eigvec_K = V_K;
+eigval_K = real(diag(D_K));
+eigvec_K = real(V_K);
 
 %Sorting Eigen Vectors w.r.t Eigen Values of K
 % (Bubble sort)
@@ -102,6 +102,7 @@ for count = 1:dim
     data_out(count,:) = alpha(:,count)'*K_center';
 end
 data_out = data_out';
+plot(data_out(:,1),data_out(:,2),'o')
 
 %%
 %%FUNCTION USED TO SWAP WHILE SORTING (Not relevent for pca)
