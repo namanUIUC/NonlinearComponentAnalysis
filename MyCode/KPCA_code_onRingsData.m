@@ -1,7 +1,7 @@
 clear all;
 clc;
 %loading data
-load('Zhenyedata')
+load('rings')
 
 %TEST DATA : M(observation/sample points) x N(features/dimensions)
 X_test = double(data);
@@ -11,7 +11,7 @@ mu = mean(X_test);
 X_centered = bsxfun(@minus, X_test, mu);
 
 %defining kernel
-kernel = 'gauss';
+kernel = 'linear';
 
 %Def: M and N
 M = size(X_centered,1);

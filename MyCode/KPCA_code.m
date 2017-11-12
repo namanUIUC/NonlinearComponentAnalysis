@@ -49,8 +49,8 @@ K_center = K - one_mat*K - K*one_mat + one_mat*K*one_mat;
 
 %Eigen values and vectors for K_centered (i.e. lamda.M and alpha)
 [V_K,D_K] = eig(K_center);
-eigval_K = diag(D_K);
-eigvec_K = V_K;
+eigval_K = real(diag(D_K));
+eigvec_K = real(V_K);
 
 %Sorting Eigen Vectors w.r.t Eigen Values of K
 % (Bubble sort)
