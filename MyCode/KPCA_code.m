@@ -4,14 +4,15 @@ clc;
 load('usps_all')
 
 %TEST DATA : M(observation/sample points) x N(features/dimensions)
-X_test = double(data(:, 1:500, 1)');
+X_test = double(data(:, 1:800, 1)');
 
 %Centreing Data
 mu = mean(X_test);
 X_centered = bsxfun(@minus, X_test, mu);
 
 %defining kernel
-kernel = 'gauss';
+kernel = 'poly';
+n= 3;
 
 %Def: M and N
 M = size(X_centered,1);
@@ -19,7 +20,9 @@ N = size(X_centered,2);
 
 %creating K matrix
 switch kernel
-    
+    case 'poly'
+        K = (X_centered*X_centered').^n;
+        
     case 'linear'
         K = X_centered*X_centered';
         
@@ -79,7 +82,7 @@ lamda = (Sorted_eigval_K)./M;
 dim = 0;
 percent = 0;
 for indx=1:size(lamda)
-    if percent < 0.99
+    if percent < 0.90
         dim = dim + 1;
     else
         break;

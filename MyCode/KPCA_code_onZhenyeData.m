@@ -11,7 +11,8 @@ mu = mean(X_test);
 X_centered = bsxfun(@minus, X_test, mu);
 
 %defining kernel
-kernel = 'gauss';
+kernel = 'poly';
+n= 0.5;
 
 %Def: M and N
 M = size(X_centered,1);
@@ -19,7 +20,9 @@ N = size(X_centered,2);
 
 %creating K matrix
 switch kernel
-    
+    case 'poly'
+        K = (X_centered*X_centered').^n;
+        
     case 'linear'
         K = X_centered*X_centered';
         
