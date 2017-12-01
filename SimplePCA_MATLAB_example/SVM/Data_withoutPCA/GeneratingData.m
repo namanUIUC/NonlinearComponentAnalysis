@@ -13,8 +13,16 @@ for i=0:9
 end
 
 Train = [Label, X_train];
+
+Label = [];
+for i=0:9
+    Label = [Label; i*ones(300,1)];
+end
+
+Test = [Label, X_test];
+
 csvwrite('Train.csv',Train)
-csvwrite('Test.csv',X_test)
+csvwrite('Test.csv',Test)
 % 
 % % Model=svm.train(X_train,Label);
 % % predict=svm.predict(Model,X_test);

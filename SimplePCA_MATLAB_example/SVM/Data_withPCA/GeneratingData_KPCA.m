@@ -3,8 +3,13 @@ clc;
 %loading data
 load('usps_all')
 
+temp = [];
+for i=1:5
+    temp = [temp; data(:,:,i)'];
+end
+
 %TEST DATA : M(observation/sample points) x N(features/dimensions)
-X_test = double(data(:, 1:800, 1)');
+X_test = double(temp);
 
 %Centreing Data
 mu = mean(X_test);
