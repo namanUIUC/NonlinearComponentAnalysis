@@ -11,7 +11,8 @@ mu = mean(X_test);
 X_centered = bsxfun(@minus, X_test, mu);
 
 %defining kernel
-kernel = 'linear';
+kernel = 'poly';
+n= 2;
 
 %Def: M and N
 M = size(X_centered,1);
@@ -19,7 +20,9 @@ N = size(X_centered,2);
 
 %creating K matrix
 switch kernel
-    
+    case 'poly'
+        K = (X_centered*X_centered').^n;
+        
     case 'linear'
         K = X_centered*X_centered';
         
@@ -115,14 +118,26 @@ title('PC2 vs PC3')
 subplot(2,2,4)
 plot(data_out(:,1),data_out(:,3),'o')
 title('PC1 vs PC3')
-%%
-%%FUNCTION USED TO SWAP WHILE SORTING (Not relevent for pca)
-function x = swap(x,i,j)
-% Swap x(i) and x(j)
-% Note: In practice, x should be passed by reference
 
-val = x(i);
-x(i) = x(j);
-x(j) = val;
-
+figure(2)
+for i=1:158
+    plot(data_out(i,2),data_out(i,3),'o')
+    hold on
+    pause(0.1)
 end
+
+% X = data_out(:,2:3);
+% [idx,C] = kmeans(X,3);
+% 
+% figure;
+% plot(X(idx==1,1),X(idx==1,2),'r.','MarkerSize',12)
+% hold on
+% plot(X(idx==2,1),X(idx==2,2),'b.','MarkerSize',12)
+% hold on
+% plot(X(idx==3,1),X(idx==3,2),'g.','MarkerSize',12)
+% plot(C(:,1),C(:,2),C(:,3),'kx',...
+%      'MarkerSize',15,'LineWidth',3)
+% legend('Cluster 1','Cluster 2','Cluster 3','Centroids',...
+%        'Location','NW')
+% title 'Cluster Assignments and Centroids'
+% hold off

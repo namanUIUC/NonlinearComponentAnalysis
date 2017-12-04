@@ -11,8 +11,8 @@ mu = mean(X_test);
 X_centered = bsxfun(@minus, X_test, mu);
 
 %defining kernel
-kernel = 'gauss';
-n=3;
+kernel = 'poly';
+n=0.5;
 
 %Def: M and N
 M = size(X_centered,1);
@@ -60,6 +60,7 @@ eigvec_K = real(V_K);
 Sorted_eigval_K=eigval_K;
 Sorted_eigvec_K=eigvec_K;
 n = length(Sorted_eigval_K);
+
 while (n > 0)
     % Iterate through x
     nnew = 0;
@@ -106,26 +107,35 @@ for count = 1:dim
 end
 data_out = data_out';
 subplot(2,2,1)
-plot(X_centered(:,1),X_centered(:,2),'o')
-title('original data')
+scatter3(data_out(1:50,1),data_out(1:50,2),data_out(1:50,3),'o')
+hold on
+scatter3(data_out(51:100,1),data_out(51:100,2),data_out(51:100,3),'o')
+hold on
+scatter3(data_out(101:150,1),data_out(101:150,2),data_out(101:150,3),'o')
+title('3d visualization of PC')
 
 subplot(2,2,2)
-plot(data_out(:,1),data_out(:,2),'o')
+plot(data_out(1:50,1),data_out(1:50,2),'o')
+hold on
+plot(data_out(51:100,1),data_out(51:100,2),'o')
+hold on
+plot(data_out(101:150,1),data_out(101:150,2),'o')
 title('PC1 vs PC2')
+
 subplot(2,2,3)
-plot(data_out(:,2),data_out(:,3),'o')
+plot(data_out(1:50,2),data_out(1:50,3),'o')
+hold on
+plot(data_out(51:100,2),data_out(51:100,3),'o')
+hold on
+plot(data_out(101:150,2),data_out(101:150,3),'o')
 title('PC2 vs PC3')
+
 subplot(2,2,4)
-plot(data_out(:,1),data_out(:,3),'o')
+plot(data_out(1:50,1),data_out(1:50,3),'o')
+hold on
+plot(data_out(51:100,1),data_out(51:100,3),'o')
+hold on
+plot(data_out(101:150,1),data_out(101:150,3),'o')
 title('PC1 vs PC3')
-%%
-%%FUNCTION USED TO SWAP WHILE SORTING (Not relevent for pca)
-function x = swap(x,i,j)
-% Swap x(i) and x(j)
-% Note: In practice, x should be passed by reference
 
-val = x(i);
-x(i) = x(j);
-x(j) = val;
-
-end
+suptitle('Kernel PCA - Kernel : Linear')

@@ -11,8 +11,8 @@ mu = mean(X_test);
 X_centered = bsxfun(@minus, X_test, mu);
 
 %defining kernel
-kernel = 'poly';
-n= 0.5;
+kernel = 'gauss';
+n= 3;
 
 %Def: M and N
 M = size(X_centered,1);
@@ -105,27 +105,40 @@ for count = 1:dim
     data_out(count,:) = alpha(:,count)'*K_center';
 end
 data_out = data_out';
+
+
+
 subplot(2,2,1)
-plot(X_centered(:,1),X_centered(:,2),'o')
+
+plot(X_centered(1:200,1),X_centered(1:200,2),'o') 
+hold on
+plot(X_centered(201:400,1),X_centered(201:400,2),'x') 
+hold on
+plot(X_centered(401:600,1),X_centered(401:600,2),'o') 
 title('original data')
 
 subplot(2,2,2)
-plot(data_out(:,1),data_out(:,2),'o')
+plot(data_out(1:200,1),data_out(1:200,2),'o') 
+hold on
+plot(data_out(201:400,1),data_out(201:400,2),'x') 
+hold on
+plot(data_out(401:600,1),data_out(401:600,2),'o')
 title('PC1 vs PC2')
+
 subplot(2,2,3)
-plot(data_out(:,2),data_out(:,3),'o')
+plot(data_out(1:200,2),data_out(1:200,3),'o') 
+hold on
+plot(data_out(200:400,2),data_out(200:400,3),'x') 
+hold on
+plot(data_out(400:600,2),data_out(400:600,3),'o')
 title('PC2 vs PC3')
+
 subplot(2,2,4)
-plot(data_out(:,1),data_out(:,3),'o')
+plot(data_out(1:200,1),data_out(1:200,3),'o') 
+hold on
+plot(data_out(200:400,1),data_out(200:400,3),'x') 
+hold on
+plot(data_out(400:600,1),data_out(400:600,3),'o')
 title('PC1 vs PC3')
-%%
-%%FUNCTION USED TO SWAP WHILE SORTING (Not relevent for pca)
-function x = swap(x,i,j)
-% Swap x(i) and x(j)
-% Note: In practice, x should be passed by reference
 
-val = x(i);
-x(i) = x(j);
-x(j) = val;
-
-end
+suptitle('Kernel PCA - Kernel : Gauss (RBF)')
