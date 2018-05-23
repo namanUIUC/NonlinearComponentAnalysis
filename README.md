@@ -32,15 +32,15 @@ In the paper, there are two major experiments:
 - Character Recognition (USPS Dataset)
 
 ### Toy example: 4-degree Polynomial Kernel PCA
-We implemented this part with MATLAB. The code can be found [here](https://github.com/Zhenye-Na/npca/blob/master/our_kpca/kpca_code.m).
+We implemented this part with MATLAB. The code can be found [here](https://github.com/namanUIUC/NonlinearComponentAnalysis/blob/master/KPCA-projectcode/kpca_code.m).
 
 ## Project implementation
 ### SVM and KPCA on Iris Dataset
 Principal Component Analysis (PCA) is a dimensionality reduction technique that is used to transform and a high-dimensional dataset into a smaller dimensional subspace to give a directed impression of the dataset prior to running a machine learning algorithm on the data. The Iris dataset is in a 4 th dimensions (features) of three different iris flower species. 
 
-Related codes can be found [here](https://github.com/Zhenye-Na/npca/blob/master/application/SVM_on_Iris.ipynb).
+Related codes can be found [here](https://github.com/namanUIUC/NonlinearComponentAnalysis/blob/master/application/SVM_on_Iris.ipynb).
 
 ### SVC on USPS Dataset
 The dataset contains numeric data obtained from the scanning of handwritten digits from envelopes by the U.S. Postal Service. The original scanned digits are binary and of diﬀerent sizes and orientations; the images here have been deslanted and size normalized, resulting in 16 × 16 grayscale. We will ﬁrst extract features via Kernel PCA and apply that to a SVM classiﬁer to train and test on the splitted USPS dataset.
 
-Related codes can be found [here](https://github.com/Zhenye-Na/npca/blob/master/application/SVC_on_USPS.ipynb).
+Related codes can be found [here](https://github.com/namanUIUC/NonlinearComponentAnalysis/blob/master/application/SVC_on_USPS.ipynb).
