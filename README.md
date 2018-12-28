@@ -1,6 +1,8 @@
 # Nonlinear Component Analysis as a Kernel Eigenvalue Problem
 Course project for [IE529: Stats of Big data & Clustering](https://ise.illinois.edu/courses/profile/IE529-120168), 2017 Fall, UIUC
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/namanUIUC/NonlinearComponentAnalysis/master)
+
 ## Our team member
 | Name           | Guthub Homepage                           |
 |----------------|-------------------------------------------|
