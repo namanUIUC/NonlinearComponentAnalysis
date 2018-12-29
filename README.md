@@ -16,6 +16,10 @@ Course project for [IE529: Stats of Big data & Clustering](https://ise.illinois.
 
 We implemented the experiments presented in the paper `Nonlinear Component Analysis as a Kernel Eigenvalue Problem` by *Bernhard Schölkopf*, *Alexander Smola*, *Klaus-Robert Müller* [1]. All the articles, references and documentations are present in `docs` folder. Also, we encourage you to have an interactive notebook session via `Binder` either by clicking the above **launch binder** tag.
 
+![](utils/interactive_tutorial.gif)
+
+
+
 > **Note**: click on the direct link if the above binder tag is non responsive 
 >
 > Direct link - https://mybinder.org/v2/gh/namanUIUC/NonlinearComponentAnalysis/master
@@ -46,9 +50,6 @@ In the paper, there are two major experiments:
 - Toy example: 4-degree Polynomial Kernel PCA
 - Character Recognition (USPS Dataset)
 
-### Toy example: 4-degree Polynomial Kernel PCA
-We implemented this part with MATLAB. The code can be found [here](https://github.com/namanUIUC/NonlinearComponentAnalysis/blob/master/KPCA-projectcode/kpca_code.m).
-
 
 
 ## Project implementation
@@ -56,10 +57,13 @@ We implemented this part with MATLAB. The code can be found [here](https://githu
 ### SVM and KPCA on Iris Dataset
 Principal Component Analysis (PCA) is a dimensionality reduction technique that is used to transform and a high-dimensional dataset into a smaller dimensional subspace to give a directed impression of the dataset prior to running a machine learning algorithm on the data. We have extracted features for classification of standard [IRIS](https://en.wikipedia.org/wiki/Iris_flower_data_set) dataset via KPCA.  
 
+![](utils/irisdata.gif)
+
 ### SVC on USPS Dataset
+
 The dataset contains numeric data obtained from the scanning of handwritten digits from envelopes by the U.S. Postal Service. The original scanned digits are binary and of diﬀerent sizes and orientations; the images here have been deslanted and size normalized, resulting in 16 × 16 grayscale. We will ﬁrst extract features via Kernel PCA and apply that to a SVM classiﬁer to train and test on the splitted USPS dataset.
 
-
+![](utils/toydata.gif)
 
 ## Team 
 
