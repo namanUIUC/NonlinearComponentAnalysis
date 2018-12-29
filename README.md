@@ -1,6 +1,7 @@
 
-
-![](https://courses.engr.illinois.edu/ge494/images/ISE_header_webpage_780px.jpg)
+<p align="center">
+  <img src="https://courses.engr.illinois.edu/ge494/images/ISE_header_webpage_780px.jpg">
+</p>
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/namanUIUC/NonlinearComponentAnalysis/master)
 
